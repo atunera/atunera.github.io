@@ -15,7 +15,7 @@ body {
 }
 
 .atun {
-    width: max(15%, 150px);
+    width: max(30%, 250px);
     position: absolute;
     /* border: 1px solid white; */
 }
