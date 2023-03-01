@@ -11,8 +11,9 @@ window.onmousemove = e => {
     const yDecimalFactor = (yDecimal * 2) - 1;
 
     atunes.forEach(x => {
-        x.style.transform = `translateX(${-xDecimalFactor * 30}%)`;
-        x.style.transform += `translateY(${-yDecimalFactor * 30}%)`;
+        // x.style.transform = `translateX(${-xDecimalFactor * 30}%)`;
+        // x.style.transform += `translateY(${-yDecimalFactor * 30}%)`;
+
 
         const { left, top, width, height } = x.getBoundingClientRect();
         let centerX = left + width / 2;
@@ -24,11 +25,36 @@ window.onmousemove = e => {
         const yDiff = yDecimal - centerY;
 
         const angle = Math.atan(yDiff / xDiff) + 'rad';
-        x.style.transform += `rotate(${angle})`;
+        // x.style.transform += `rotate(${angle})`;
 
+        // if (xDiff <= 0) {
+        //     x.style.transform += 'scaleX(-1)'
+        // }
+        let scaleAtun;
         if (xDiff <= 0) {
-            x.style.transform += 'scaleX(-1)'
+            scaleAtun = -1;
+        } else {
+            scaleAtun = 1;
         }
+
+        const animActions = [
+            {
+                transform: `translateX(${-xDecimalFactor * 50}%)
+                translateY(${-yDecimalFactor * 50}%)
+                rotate(${angle})
+                scaleX(${scaleAtun}`
+            },
+            
+            // scaleX(${scaleAtun})
+            // {transform: `translateY(${-yDecimalFactor * 30}%)`},
+            // {transform: `translateY(${-yDecimalFactor * 30}%)`},
+        ]
+
+        x.animate(animActions, {
+            duration: 3000, fill: 'forwards'
+        })
+
+
 
     })
 }
