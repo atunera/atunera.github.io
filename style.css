@@ -80,8 +80,6 @@ body {
     height: calc(100vh - 2rem - 2px);
 }
 
-
-
 .titulo>h1 {
     color: white;
     font-family: 'Spanish';

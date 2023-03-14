@@ -1,8 +1,8 @@
 const atunes = document.querySelectorAll('.atun');
 const body = document.getElementsByTagName('body')[0];
 
-['mousemove', 'touchmove'].forEach(function (e) {
-    window.addEventListener(e, e => {
+['mousemove', 'touchmove'].forEach(function (event) {
+    window.addEventListener(event, e => {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
 
